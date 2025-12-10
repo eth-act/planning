@@ -343,4 +343,4 @@ This a perpetual project.
 - What happens if an upgrade is needed between hardforks? (minor patch and critical bug fix)
     - https://hackmd.io/@kevaundray/B1dE392-Ze
 - How do I know what should be a private input and what should be public?
-    - This will be specified in the consensus spec
+    - This will be specified in consensus-specs.
