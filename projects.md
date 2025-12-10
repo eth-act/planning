@@ -55,7 +55,7 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Dependencies:**
 - *Upstream*: execution-specs
-    - Concretely, this is blocked by the ability for the execution specs to track what state has been accessed in the block. This gets added with Block Level Access Lists(BALs). As of November 2025, we have told the testing team that this is not a high enough priority to warrant them pulling it out of the BALs PR and applying it to previous forks. See tracking issue [here](https://github.com/ethereum/execution-specs/issues/1865)
+    - Concretely, this is blocked by the ability for the execution specs to track what state has been accessed in the block. This gets added with Block Level Access Lists (BALs). As of November 2025, we have told the STEEL team that this is not a high enough priority to warrant them pulling it out of the BALs PR and applying it to previous forks. See tracking issue [here](https://github.com/ethereum/execution-specs/issues/1865).
 - *Downstream*: Guest program
     - This is the non-trivial input for the program that gets proven. While we have optional proofs, this will predominantly be called via RPC.
 
