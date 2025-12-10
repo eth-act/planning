@@ -106,7 +106,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Gary (Besu)
 - Karim (Besu)
 
-# Project 3: zkVM-guest API standardization
+## Project 3: zkVM-guest API Standardization
 
 **Goal:** Standardize the interface between the zkVM and the guest program
 
