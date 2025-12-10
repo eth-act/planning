@@ -72,7 +72,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Matt (Reth)
 - Karim (Besu)
 
-## Project 2: Guest program
+## Project 2: zkEVM Guest Program
 
 **Goal:** Define the stateless validation logic that consumes a EL block + ExecutionWitness and determines whether there is a valid state transition function.
 
