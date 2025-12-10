@@ -341,7 +341,7 @@ This a perpetual project.
 - Where does the CL get the ELF file from?
     - Nominally, from the release page of the chosen EL.
 - Where does the EL find the zkVM C header files for interop?
-    - zkVM teams will need to document where this is located. I propose that we put it in the zkvm-standards repo, next to the actual standard
+    - zkVM teams will need to document where this is located. I propose that we put it in the zkvm-standards repo, next to the actual standard.
 - Where do zkVM teams find the ELF files or source files for each EL, for local testing?
 - Where does security find the specs for a zkEVM?
     - This has not been created, though I suggest we also put this on ethproofs and zkevm.ethereum.org
