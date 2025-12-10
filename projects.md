@@ -207,7 +207,6 @@ Below we describe sub-projects that make the above workflow possible.
 - Kev (EF zkEVM)
 - zkVM teams (For assistance on GPU orchestration and integration)
 
-
 # Project 6: Benchmarking and Metrics
 
 This a perpetual project.
