@@ -44,7 +44,7 @@ Below we describe sub-projects that make the above workflow possible.
 - ExecutionWitness format described in [execution-specs](https://github.com/ethereum/execution-specs) with tests.
     - This implies a method for generating them in the execution specs, allowing other clients to check that conformance.
 - RPC endpoint described in [execution-apis](https://github.com/ethereum/execution-apis)
-    - Currently we use `debug_executionWitness`. Tentatively, creating a new endpoint that is zk optimized would be optimal here. This endpoint is currently being used in production by Optimism's [Kona](https://github.com/op-rs/kona).
+    - Currently we use `debug_executionWitness`. Tentatively, creating a new endpoint that is zk-optimized would be optimal here. This endpoint is currently being used in production by Optimism's [Kona](https://github.com/op-rs/kona).
 - Optimizing the ExecutionWitness for the guest program
 - RPC compatibility tests
 - Implemented in EL clients
