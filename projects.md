@@ -290,7 +290,7 @@ This a perpetual project.
 - Alex Hicks (EF snarkification)
 - George (EF cryptography research)
 - Arantxa (EF cryptography research) 
-- Someone from EF security (Can work on CL security)
+- Fredrik (EF Protocol Security)
 - Marius (EF Geth) -- for guest program security
 - Kev (EF zkEVM)
 - Cody (EF zkEVM)
