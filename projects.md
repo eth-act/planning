@@ -266,7 +266,12 @@ This a perpetual project.
 - Continuous threat modeling
 - Documents on prover incentives and the decision tree for needing it in-protocol
 - Dashboard for monitoring coverage of testing, auditing, fuzzing and formal verification.
-
+- Documented security model and trust assumptions for each component (guest program, zkVM, prover infra, CL/EL, recursion) and overall system
+- Supply-chain security requirements:
+    - Reproducible builds and artifact signing for guest programs, zkVMs, and proof-critical binaries
+- Incident-response and rollback runbook for proof-related issues
+- Differential testing & fuzzing plan for zkVMs and guest programs
+- GPU security requirements (side channels, isolation, driver risks, multi-tenant constraints)
 **Milestones:**
 
 - Agree on proof size, security regime and timelines
