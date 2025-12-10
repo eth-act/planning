@@ -34,7 +34,7 @@ CL client (attester / verifier)
 
 Below we describe sub-projects that make the above workflow possible.
 
-## Project 1: Execution Witness
+## Project 1: ExecutionWitness
 
 **Goal:** Produce the execution witness, a data structure that is produced per block holding all required data to validate the block.
 
