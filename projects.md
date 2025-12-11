@@ -84,6 +84,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Tanishq/Ruben (Nethermind)
 - Matt (Reth)
 - Karim (Besu)
+- Iván (Ethrex)
 
 ## Project 2: zkEVM Guest Program
 
@@ -119,6 +120,8 @@ Below we describe sub-projects that make the above workflow possible.
 - Gary (Besu)
 - Karim (Besu)
 - Jonathan (Axiom)
+- Iván (Ethrex)
+- Alex (zkSyncOS)
 
 ## Project 3: zkVM-guest API Standardization
 
