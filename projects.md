@@ -96,7 +96,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Somnath (Erigon)
 - Pawel (Erigon)
 - Ignacio (EF zkEVM)
-- Felipe (EF STEEL)
+- Peter (EF STEEL)
 - Ben (Nimbus)
 - Kim (Nimbus)
 - Guillaume (Geth)
