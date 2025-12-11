@@ -285,6 +285,14 @@ This a perpetual project.
     - Can the guest program panic on invalid input?
     - Will the verifier panic when given an invalid proof?
     - Is the program assumed to be trusted?
+- Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
+    - Test coverage
+    - Audit coverage
+    - Bug bounties
+    - Stable RTP for some amount of time
+    - Software diversity
+    - Formal verification
+    - Fuzzing
 - Identify the minimum acceptable formal verification requirement for each of the following components:
     - Guest program
     - Target specs
