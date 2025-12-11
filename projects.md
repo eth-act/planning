@@ -4,11 +4,24 @@ This document describes the set of milestones/sub-projects needed for Ethereum L
 
 A fundamental part of shipping zkEVMs on mainnet is to integrate back into L1's governance and infrastructure. While learning with our current infrastructure teams like pandaOps, EF Security, STEEL how the software/hardware stack works.
 
+## Table of Contents
+
+- [High-Level End-to-End Flow](#high-level-end-to-end-flow)
+- [Project 1: ExecutionWitness](#project-1-executionwitness)
+- [Project 2: zkEVM Guest Program](#project-2-zkevm-guest-program)
+- [Project 3: zkVM-guest API Standardization](#project-3-zkvm-guest-api-standardization)
+- [Project 4: Consensus Layer Integration](#project-4-consensus-layer-integration)
+- [Project 5: Prover infrastructure](#project-5-prover-infrastructure)
+- [Project 6: Benchmarking and Metrics](#project-6-benchmarking-and-metrics)
+- [Project 7: Security](#project-7-security)
+- [Project 8: ePBS (External)](#project-8-epbs-external)
+- [FAQ on interactions](#faq-on-interactions)
+
 ## High-Level End-to-End Flow
 
 At a high level the pipeline for getting a proof to test attester looks like the following:
 
-```java
+```
 EL client (stateful)
     
     ↓ produces
@@ -105,6 +118,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Matt (Reth)
 - Gary (Besu)
 - Karim (Besu)
+- Jonathan (Axiom)
 
 ## Project 3: zkVM-guest API Standardization
 
@@ -130,6 +144,7 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Working Group:**
 
+- Somnath (Erigon)
 - Marcin (Lita)
 - Kev (EF zkEVM)
 - Alex Hicks (EF zkEVM)
@@ -144,7 +159,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Michael (Jolt)
 - Alan (Brevis)
 
-# Project 4: Consensus Layer Integration
+## Project 4: Consensus Layer Integration
 
 **Goal:** Allow CL clients to verify zkEVM proofs as part of beacon block validation.
 
@@ -181,7 +196,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Kim (Nimbus)
 - Twoeth (Lodestar)
 
-# Project 5: Prover infrastructure
+## Project 5: Prover infrastructure
 
 **Goal:** Create the necessary infrastructure and interfaces to generate proofs locally and for an attester client to verify proofs.
 
@@ -208,7 +223,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Kev (EF zkEVM)
 - zkVM teams (For assistance on GPU orchestration and integration)
 
-# Project 6: Benchmarking and Metrics
+## Project 6: Benchmarking and Metrics
 
 This a perpetual project.
 
@@ -231,7 +246,7 @@ This a perpetual project.
 
 **Milestones:**
 
-- Benchmark all available guest programs against all available zkVMs locally (single then multi)
+- Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
 - Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
 
 **Working Group:**
@@ -246,7 +261,7 @@ This a perpetual project.
 - Pari (EF PandaOps)
 - Barnabas (EF PandaOps)
 
-# Project 7: Security
+## Project 7: Security
 
 This a perpetual project.
 
@@ -272,6 +287,7 @@ This a perpetual project.
 - Incident-response and rollback runbook for proof-related issues
 - Differential testing & fuzzing plan for zkVMs and guest programs
 - GPU security requirements (side channels, isolation, driver risks, multi-tenant constraints)
+
 **Milestones:**
 
 - Agree on proof size, security regime and timelines
@@ -313,7 +329,7 @@ This a perpetual project.
 - Barnabas (EF PandaOps)
 - Julian (RIG)
 
-# Project 8: ePBS (External)
+## Project 8: ePBS (External)
 
 **Goal:** To increase the amount of time available to prove a block.
 
@@ -342,7 +358,7 @@ This a perpetual project.
 *Downstream:* Consensus Layer integration
 - Without this, the consensus layer attester will always be attesting late
 
-# FAQ on interactions
+## FAQ on interactions
 
 - How will zkVM teams get the source code to make proofs for a specific EL? (Currently some use RSP)
     - I would suggest that we add a link to the zkevm.ethereum.org site for each EL. 
