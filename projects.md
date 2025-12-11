@@ -285,7 +285,7 @@ This a perpetual project.
     - Can the guest program panic on invalid input?
     - Will the verifier panic when given an invalid proof?
     - Is the program assumed to be trusted?
-- Formally verify the necessary components, in practice we think this means:
+- Identify the minimum acceptable formal verification requirement for each of the following components:
     - Guest program
     - Target specs
     - SNARK prover
