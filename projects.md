@@ -81,7 +81,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Ben (Nimbus)
 - Felix (Geth)
 - Guillaume (Geth)
-- Tanishq/Ruben/Nikita (Nethermind)
+- Tanishq/Ruben (Nethermind)
 - Matt (Reth)
 - Karim (Besu)
 
