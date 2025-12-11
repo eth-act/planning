@@ -175,6 +175,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Manu (Prysm)
 - Jun Song + Uche (EPF on Prysm)
 - Gabriel (Teku)
+- Lucas (Teku)
 - Dapplion (Lighhouse)
 - Saulius (Grandine)
 - Kim (Nimbus)
