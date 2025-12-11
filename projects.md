@@ -250,7 +250,7 @@ This a perpetual project.
 
 This a perpetual project.
 
-**Goal:** Establish security metrics for all of the different components; guest program, zkVMs, GPU orchestration, consensus layer client. Setup monitoring of these metrics and champion hardening initiatives.
+**Goal:** Establish security metrics for all of the different components; guest program, zkVMs, GPU orchestration, consensus layer client. Set up monitoring of these metrics and champion hardening initiatives.
 
 **Owners:** ELs, CLs, zkVM teams, EF
 
