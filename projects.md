@@ -317,6 +317,7 @@ This a perpetual project.
 
 **Working Group:**
 - Alex Hicks (EF snarkification)
+- Quang Dao (Jolt)
 - George (EF cryptography research)
 - Arantxa (EF cryptography research) 
 - Fredrik (EF Protocol Security)
