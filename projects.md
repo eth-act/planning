@@ -246,7 +246,7 @@ This a perpetual project.
 - Projected opcode repricings for zk
     - Including draft EIPs for adjusting the price of certain opcodes
 - Define prover hardware requirements
-    - This is for a particular gas limit
+    - This is for a particular gas limit. We note that each zkVM may have different optimal hardware setups.
 - Benchmark and document verification time using [EIP-7870](https://eips.ethereum.org/EIPS/eip-7870)
 
 **Milestones:**
