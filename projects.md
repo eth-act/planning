@@ -103,7 +103,8 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Dependencies:**
 - *Upstream:* ExecutionWitness stability (Project 1), 
-- *Downstream:* zkVMs
+- *Downstream:* zkVMs and CL
+    - The CL in this case, will take the output of the stateless function and define some of them as being public inputs.
 
 **Working Group:**
 
