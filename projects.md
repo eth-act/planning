@@ -198,6 +198,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Saulius (Grandine)
 - Kim (Nimbus)
 - Twoeth (Lodestar)
+- Francesco Risitano (Scroll)
 
 ## Project 5: Prover infrastructure
 
