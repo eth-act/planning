@@ -291,6 +291,7 @@ This a perpetual project.
 - Incident-response and rollback runbook for proof-related issues
 - Differential testing & fuzzing plan for zkVMs and guest programs
 - GPU security requirements (side channels, isolation, driver risks, multi-tenant constraints)
+- All relevant proving systems being listed in https://github.com/ethereum/soundcalc
 
 **Milestones:**
 
