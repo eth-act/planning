@@ -115,7 +115,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Kim (Nimbus)
 - Guillaume (Geth)
 - Felix (Geth)
-- Tanish (Nethermind)
+- Tanishq/Ruben (Nethermind)
 - Matt (Reth)
 - Gary (Besu)
 - Karim (Besu)
