@@ -275,6 +275,7 @@ This a perpetual project.
 
 **Outputs:**
 - Specifications for the relevant proof system components
+    - We should be clear on who should produce what specification. For the zkVM specs, it will be a joint effort between zkVM teams and the EF.
 - zkVM that follows the security guidelines and proof sizes in EF cryptography research blogpost [TODO: INSERT LINK WHEN PUBLISHED]
     - This will have provable security as a requirement
 - Create Fork readiness review document
