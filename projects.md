@@ -151,7 +151,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Somnath (Erigon)
 - Marcin (Lita)
 - Kev (EF zkEVM)
-- Alex Hicks (EF zkEVM)
+- Alex Hicks (EF snarkification)
 - Guillaume (Geth)
 - Maxim Menshikov (Nethermind)
 - Jordi (Zisk)
