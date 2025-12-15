@@ -264,7 +264,7 @@ This a perpetual project.
 - Maria (EF RIG)
 - Pawel (Erigon)
 - Pari (EF PandaOps)
-- Barnabas (EF PandaOps)
+- Sam (EF PandaOps)
 
 ## Project 7: Security
 
