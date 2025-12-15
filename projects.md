@@ -321,7 +321,11 @@ This a perpetual project.
     - Target specs
     - SNARK prover
     - SNARK verifier
-
+- Establish security and adversary model
+    - Define attacker capabilities
+    - Define trusted vs untrusted components
+    - Define consensus-breaking vs non-consensus-breaking failures
+- Establish and test safe fallback behavior
 **Working Group:**
 - Alex Hicks (EF snarkification)
 - Quang Dao (Jolt)
