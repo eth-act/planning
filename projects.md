@@ -253,6 +253,8 @@ This a perpetual project.
 
 - Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
 - Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
+- Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
+    - This may be the case if re-execution/proving resources are too uncorrelated.
 
 **Working Group:**
 
