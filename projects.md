@@ -119,7 +119,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Tanishq/Ruben (Nethermind)
 - Matt (Reth)
 - Gary (Besu)
-- Karim (Besu)
+- Daniel (Besu)
 - Jonathan (Axiom)
 - Iván (Ethrex)
 - Alex (zkSyncOS)
@@ -162,6 +162,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Jeremy (RISC0)
 - Michael (Jolt)
 - Alan (Brevis)
+- Luis (Besu)
 
 ## Project 4: Consensus Layer Integration
 
