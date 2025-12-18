@@ -353,6 +353,7 @@ This a perpetual project.
 - Barnabas (EF PandaOps)
 - Julian (RIG)
 - Mauro (LambdaVM)
+- Maxim Menshikov (Nethermind)
 
 ## Project 8: ePBS (External)
 
