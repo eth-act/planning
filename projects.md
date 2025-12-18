@@ -157,7 +157,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Guillaume (Geth)
 - Maxim Menshikov (Nethermind)
 - Jordi (Zisk)
-- Alex Vlasov (Airbender)
+- Alex Vlasov (MatterLabs)
 - Tamir (Succinct)
 - Jonathan (Axiom)
 - Stephen (Ziren)
