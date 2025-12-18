@@ -282,6 +282,7 @@ This a perpetual project.
 **Owners:** ELs, CLs, zkVM teams, EF
 
 **Outputs:**
+- Document on the bar and process to be enlisted as a prover and guest program, in addition to the process for removing and adding more provers and guest programs to the list of supported proof types.
 - Specifications for the relevant proof system components
     - We should be clear on who should produce what specification and who the specifications are aimed at / what the goal of the specifications is. For the zkVM specs, it will be a joint effort between zkVM teams and the EF.
 - zkVM that follows the security guidelines and proof sizes in EF cryptography research blogpost [TODO: INSERT LINK WHEN PUBLISHED]
