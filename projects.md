@@ -163,6 +163,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Michael (Jolt)
 - Alan (Brevis)
 - Luis (Besu)
+- Mauro (LambdaVM)
 
 ## Project 4: Consensus Layer Integration
 
@@ -227,6 +228,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Markus (EF Devops)
 - Fara (EF Ethproofs)
 - Kev (EF zkEVM)
+- Mauro (LambdaVM)
 - zkVM teams (For assistance on GPU orchestration and integration)
 
 ## Project 6: Benchmarking and Metrics
@@ -343,6 +345,7 @@ This a perpetual project.
 - Pari (EF PandaOps)
 - Barnabas (EF PandaOps)
 - Julian (RIG)
+- Mauro (LambdaVM)
 
 ## Project 8: ePBS (External)
 
