@@ -95,6 +95,7 @@ Below we describe sub-projects that make the above workflow possible.
 **Outputs:**
 
 - Stateless program described in [execution-specs](https://github.com/ethereum/execution-specs) with tests.
+    - We note that the EL should also commit to execution payload to enable the execution payload to be placed inside of blobs.
 - Reproducible compilation workflow
 - Compiles to a [standardized](https://github.com/eth-act/zkvm-standards) target
     - This process makes it explicitly clear, how many targets there are and what assumptions we are making about them. 
@@ -173,7 +174,8 @@ Below we describe sub-projects that make the above workflow possible.
 
 - General document on how the CL is modified to accommodate for proofs
 - Stable consensus-specs version
-- Documents and EIPs on the different design strategies, eg blocks in blobs
+- Documents and EIPs on the different design strategies
+    - Block data availability aka (putting the block in blobs) to guarantee the execution payload is available is an important feature. This will require modifications in the EL and the CL. Document should outline worse cases and whether the EL block is given priority. 
 - Document possible changes to [EIP-7870](https://eips.ethereum.org/EIPS/eip-7870) for attesters and full-nodes
 
 **Milestones:**
@@ -281,15 +283,17 @@ This a perpetual project.
 
 **Outputs:**
 - Specifications for the relevant proof system components
-    - We should be clear on who should produce what specification. For the zkVM specs, it will be a joint effort between zkVM teams and the EF.
+    - We should be clear on who should produce what specification and who the specifications are aimed at / what the goal of the specifications is. For the zkVM specs, it will be a joint effort between zkVM teams and the EF.
 - zkVM that follows the security guidelines and proof sizes in EF cryptography research blogpost [TODO: INSERT LINK WHEN PUBLISHED]
     - This will have provable security as a requirement
 - Create Fork readiness review document
+    - Establish maintenance plan (or requirement) for existing proofs, when the system is upgraded.
     - This includes decisions on whether we will need bug bounties and audits for optional proofs
 - Formal verification:
-    - Document on what components we want to be formally verified for optional proofs
-    - Tracker for which zkVM/EL is formally verified 
+    - Document on what components we want to be formally verified for optional proofs and to which standard (i.e., what exactly is being verified, how, under what assumptions).
+    - Tracker for which zkVM/EL components are formally verified.
 - Continuous threat modeling
+    - Characterization of liveness under propagation failures
 - Documents on prover incentives and the decision tree for needing it in-protocol
 - Dashboard for monitoring coverage of testing, auditing, fuzzing and formal verification.
 - Documented security model and trust assumptions for each component (guest program, zkVM, prover infra, CL/EL, recursion) and overall system
@@ -303,11 +307,11 @@ This a perpetual project.
 **Milestones:**
 
 - Agree on proof size, security regime and timelines
-- Figure out what proving system components need specifications
+- Figure out what proving system components need specifications and the format/granularity of the specifications
     -  Specs on the structure of each zkVMs proving system
     -  Specs for the recursion topology
     -  Paper-to-code algorithmic specs
-    -  Precise security proofs on the entire SNARK
+    -  Precise security proofs for the entire SNARK
 - Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
 - Figure out guarantees around each component; for example:
     - Can the guest program panic on invalid input?
