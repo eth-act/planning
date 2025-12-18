@@ -59,6 +59,7 @@ Below we describe sub-projects that make the above workflow possible.
 - RPC endpoint described in [execution-apis](https://github.com/ethereum/execution-apis)
     - Currently we use `debug_executionWitness`. Tentatively, creating a new endpoint that is zk-optimized would be optimal here. This endpoint is currently being used in production by Optimism's [Kona](https://github.com/op-rs/kona).
 - Optimizing the ExecutionWitness for the guest program
+    - [Reference issue in Reth](https://github.com/paradigmxyz/reth/issues/20365)
 - RPC compatibility tests
 - Implemented in EL clients
     - Clients should be able to generate the ExecutionWitness for the last $N$ blocks. $N$ here is related to how tolerant the EL is to reorgs.
