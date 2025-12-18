@@ -333,6 +333,7 @@ This a perpetual project.
 - Establish and test safe fallback behavior
 **Working Group:**
 - Alex Hicks (EF snarkification)
+- Derek (EF snarkification)
 - Quang Dao (Jolt)
 - George (EF cryptography research)
 - Arantxa (EF cryptography research) 
