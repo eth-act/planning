@@ -86,7 +86,7 @@ Below we describe sub-projects that make the above workflow possible.
 - Matt (Reth)
 - Karim (Besu)
 - Iván (Ethrex)
-
+- Jonathan (Axiom)
 ## Project 2: zkEVM Guest Program
 
 **Goal:** Define the stateless validation logic that consumes an EL block + ExecutionWitness and determines whether there is a valid state transition function.
@@ -249,6 +249,7 @@ This a perpetual project.
     - CL: eg proof propagation time
     - EL: eg witness generation time 
     - zkVM: eg proof creation and verification time, relationship between number of GPUs and proof time
+    - All of the above should be done with respects to the type and number of GPUs
 - Projected opcode repricings for zk
     - Including draft EIPs for adjusting the price of certain opcodes
 - Define prover hardware requirements
@@ -309,11 +310,19 @@ This a perpetual project.
 **Milestones:**
 
 - Agree on proof size, security regime and timelines
-- Figure out what proving system components need specifications and the format/granularity of the specifications
-    -  Specs on the structure of each zkVMs proving system
-    -  Specs for the recursion topology
-    -  Paper-to-code algorithmic specs
-    -  Precise security proofs for the entire SNARK
+- Figure out what components need specifications and the format/granularity of the specifications
+    Proving system
+        -  Specs on the structure of each zkVMs proving system
+        -  Specs for the recursion topology
+        -  Paper-to-code algorithmic specs
+        -  Precise security proofs for the entire SNARK
+    zkVM circuit definitions
+        - This is the circuit definition for the ISA that the zkVM supports
+        - Figure out what/how we specify this, including the fact that each zkVM may call precompiles differently
+        - Current supported ISAs are defined [here](https://github.com/eth-act/zkvm-standards)
+    Guest programs
+        - This is the code that EL devs will write. However it also includes zkVM specific code for zkVM IO.
+        - Is this code covered under EEST like the normal STF?
 - Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
 - Figure out guarantees around each component; for example:
     - Can the guest program panic on invalid input?
@@ -336,6 +345,7 @@ This a perpetual project.
     - Define attacker capabilities
     - Define trusted vs untrusted components
     - Define consensus-breaking vs non-consensus-breaking failures
+    - Add formal incident response plan for zkVM provers, verifiers and EL bugs. 
 - Establish and test safe fallback behavior
 **Working Group:**
 - Alex Hicks (EF snarkification)
