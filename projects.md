@@ -1,0 +1,411 @@
+# zkEVM on L1
+
+This document describes the set of milestones/sub-projects needed for Ethereum L1 to support zkEVM proofs as an alternative to re-execution in the attesting workflow.
+
+A fundamental part of shipping zkEVMs on mainnet is to integrate back into L1's governance and infrastructure. While learning with our current infrastructure teams like pandaOps, EF Security, STEEL how the software/hardware stack works.
+
+## Table of Contents
+
+- [High-Level End-to-End Flow](#high-level-end-to-end-flow)
+- [Project 1: ExecutionWitness](#project-1-executionwitness)
+- [Project 2: zkEVM Guest Program](#project-2-zkevm-guest-program)
+- [Project 3: zkVM-guest API Standardization](#project-3-zkvm-guest-api-standardization)
+- [Project 4: Consensus Layer Integration](#project-4-consensus-layer-integration)
+- [Project 5: Prover infrastructure](#project-5-prover-infrastructure)
+- [Project 6: Benchmarking and Metrics](#project-6-benchmarking-and-metrics)
+- [Project 7: Security](#project-7-security)
+- [Project 8: ePBS (External)](#project-8-epbs-external)
+- [FAQ on interactions](#faq-on-interactions)
+
+## High-Level End-to-End Flow
+
+At a high level the pipeline for getting a proof to test attester looks like the following:
+
+```
+EL client (stateful)
+    
+    ↓ produces
+
+ExecutionWitness (stateless input)
+
+    ↓ consumed by
+
+zkEVM Guest Program (stateless validation)
+
+    ↓ executed in
+
+zkVM (RISC-V or other target)
+
+    ↓ produces
+
+zkEVM Proof of Execution
+
+    ↓ consumed by
+
+CL client (attester / verifier)
+```
+
+Below we describe sub-projects that make the above workflow possible.
+
+## Project 1: ExecutionWitness
+
+**Goal:** Produce the execution witness, a data structure that is produced per block holding all required data to validate the block.
+
+**Owners:** EL clients
+
+**Outputs:**
+- ExecutionWitness format described in [execution-specs](https://github.com/ethereum/execution-specs) with tests.
+    - This implies a method for generating them in the execution specs, allowing other clients to check that conformance.
+- RPC endpoint described in [execution-apis](https://github.com/ethereum/execution-apis)
+    - Currently we use `debug_executionWitness`. Tentatively, creating a new endpoint that is zk-optimized would be optimal here. This endpoint is currently being used in production by Optimism's [Kona](https://github.com/op-rs/kona).
+- Optimizing the ExecutionWitness for the guest program
+    - [Reference issue in Reth](https://github.com/paradigmxyz/reth/issues/20365)
+- RPC compatibility tests
+- Implemented in EL clients
+    - Clients should be able to generate the ExecutionWitness for the last $N$ blocks. $N$ here is related to how tolerant the EL is to reorgs.
+    - Clients should conform to the specifications given above 
+
+**Milestones:** https://hackmd.io/i4z1eOYATKq3Ang-9Zw5hQ
+
+**Dependencies:**
+- *Upstream*: execution-specs
+    - Concretely, this is blocked by the ability for the execution specs to track what state has been accessed in the block. This gets added with Block Level Access Lists (BALs). As of November 2025, we have told the STEEL team that this is not a high enough priority to warrant them pulling it out of the BALs PR and applying it to previous forks. See tracking issue [here](https://github.com/ethereum/execution-specs/issues/1865).
+- *Downstream*: Guest program
+    - This is the non-trivial input for the program that gets proven. While we have optional proofs, this will predominantly be called via RPC.
+
+**Working Group:**
+
+- Somnath (Erigon)
+- Pawel (Erigon)
+- Ignacio (EF zkEVM)
+- Peter (EF STEEL)
+- Ben (Nimbus)
+- Felix (Geth)
+- Guillaume (Geth)
+- Tanishq/Ruben (Nethermind)
+- Matt (Reth)
+- Karim (Besu)
+- Iván (Ethrex)
+- Jonathan (Axiom)
+## Project 2: zkEVM Guest Program
+
+**Goal:** Define the stateless validation logic that consumes an EL block + ExecutionWitness and determines whether there is a valid state transition function.
+
+**Owners:** EL clients
+
+**Outputs:**
+
+- Stateless program described in [execution-specs](https://github.com/ethereum/execution-specs) with tests.
+    - We note that the EL should also commit to execution payload to enable the execution payload to be placed inside of blobs.
+- Reproducible compilation workflow
+- Compiles to a [standardized](https://github.com/eth-act/zkvm-standards) target
+    - This process makes it explicitly clear, how many targets there are and what assumptions we are making about them. 
+
+**Milestones:** https://hackmd.io/i4z1eOYATKq3Ang-9Zw5hQ
+
+**Dependencies:**
+- *Upstream:* ExecutionWitness stability (Project 1), 
+- *Downstream:* zkVMs and CL
+    - The CL in this case, will take the output of the stateless function and define some of them as being public inputs.
+
+**Working Group:**
+
+- Somnath (Erigon)
+- Pawel (Erigon)
+- Ignacio (EF zkEVM)
+- Peter (EF STEEL)
+- Ben (Nimbus)
+- Kim (Nimbus)
+- Guillaume (Geth)
+- Felix (Geth)
+- Tanishq/Ruben (Nethermind)
+- Matt (Reth)
+- Gary (Besu)
+- Daniel (Besu)
+- Jonathan (Axiom)
+- Iván (Ethrex)
+- Alex (zkSyncOS)
+
+## Project 3: zkVM-guest API Standardization
+
+**Goal:** Standardize the interface between the zkVM and the guest program
+
+**Owners:** EL and zkVM teams
+
+**Outputs:**
+- A standardized list of targets
+- A standardized interface for accessing zkVM precompiles
+- A standardized interface for accessing IO
+- Codified assumptions; for example, alignment assumptions, assumptions on memory layout, trap semantics, bootloader, can the ELF have data in code, etc
+
+**Milestones:**
+- Standardize minimal hardware targets that:
+    - Each EL can compile to
+    - Each zkVM will target
+- Standardize the zkVM precompiles available via C headers
+- Standardize the interface for accessing IO via C headers
+- Standardize assumptions made about the ELF and the zkVM's processing of the ELF
+
+**Dependencies:** None
+
+**Working Group:**
+
+- Somnath (Erigon)
+- Marcin (Lita)
+- Kev (EF zkEVM)
+- Alex Hicks (EF snarkification)
+- Guillaume (Geth)
+- Maxim Menshikov (Nethermind)
+- Jordi (Zisk)
+- Alex Vlasov (MatterLabs)
+- Tamir (Succinct)
+- Jonathan (Axiom)
+- Stephen (Ziren)
+- Jeremy (RISC0)
+- Michael (Jolt)
+- Alan (Brevis)
+- Luis (Besu)
+- Mauro (LambdaVM)
+
+## Project 4: Consensus Layer Integration
+
+**Goal:** Allow CL clients to verify zkEVM proofs as part of beacon block validation.
+
+**Outputs:**
+
+- General document on how the CL is modified to accommodate for proofs
+- Stable consensus-specs version
+- Documents and EIPs on the different design strategies
+    - Block data availability aka (putting the block in blobs) to guarantee the execution payload is available is an important feature. This will require modifications in the EL and the CL. Document should outline worse cases and whether the EL block is given priority. 
+- Document possible changes to [EIP-7870](https://eips.ethereum.org/EIPS/eip-7870) for attesters and full-nodes
+
+**Milestones:**
+
+- Implement modifications according to the reference specification
+- Port modifications in consensus-specs
+- All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+- [Internal EF rollout + onboarding plan](https://hackmd.io/@kevaundray/H1x1K-ckWg)
+
+**Dependencies:**
+- Upstream: This depends on all other components
+
+**Working Group:**
+
+- Kev (EF zkEVM on Lighthouse)
+- Pari (EF PandaOps)
+- George (EF Cryptography research on proof size)
+- Barnabas (EF PandaOps)
+- Raul (EF Networking on *proof sizes*)
+- Manu (Prysm)
+- Jun Song + Uche (EPF on Prysm)
+- Gabriel (Teku)
+- Lucas (Teku)
+- Dapplion (Lighhouse)
+- Saulius (Grandine)
+- Kim (Nimbus)
+- Twoeth (Lodestar)
+- Francesco Risitano (Scroll)
+
+## Project 5: Prover infrastructure
+
+**Goal:** Create the necessary infrastructure and interfaces to generate proofs locally and for an attester client to verify proofs.
+
+**Owners:** EF and proving teams
+
+**Milestones:**
+
+- Integrate zkVMs into Ethproofs
+- Ensure GPU implementations are open source
+- Integrate zkVMs into Ere
+- Test zkboost in isolation with a single and then multiple GPUs
+    - This does not need to be with the stateless guest program as we mainly care about testing the infrastructure and not necessarily the stateless validation program
+- Metrics to track prover reliability and pipelining inefficiencies
+- Allow attesters to use this infrastructure to verify proofs
+
+**Working Group:**
+
+- Han (EF zkEVM)
+- Pari (EF PandaOps)
+- Stefan (EF PandaOps)
+- Barnabas (EF PandaOps)
+- Markus (EF Devops)
+- Fara (EF Ethproofs)
+- Kev (EF zkEVM)
+- Mauro (LambdaVM)
+- zkVM teams (For assistance on GPU orchestration and integration)
+
+## Project 6: Benchmarking and Metrics
+
+This a perpetual project.
+
+**Goal:** Implement robust benchmarking mechanisms that can be used for future network analysis and gas repricing
+
+**Owners:** EF
+
+**Outcomes:**
+
+- Document explaining the items we want to benchmark/gather metrics for in:
+    - Guest programs: eg opcodes being used, native cycle count and its relationship to proving time
+    - CL: eg proof propagation time
+    - EL: eg witness generation time 
+    - zkVM: eg proof creation and verification time, relationship between number of GPUs and proof time
+    - All of the above should be done with respects to the type and number of GPUs
+- Projected opcode repricings for zk
+    - Including draft EIPs for adjusting the price of certain opcodes
+- Define prover hardware requirements
+    - This is for a particular gas limit. We note that each zkVM may have different optimal hardware setups.
+- Benchmark and document verification time using [EIP-7870](https://eips.ethereum.org/EIPS/eip-7870)
+
+**Milestones:**
+
+- Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
+- Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
+- Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
+    - This may be the case if re-execution/proving resources are too uncorrelated.
+
+**Working Group:**
+
+- Ignacio (EF zkEVM)
+- Han (EF zkEVM)
+- Jochem (EF Prototyping)
+- Fara (EF Ethproofs)
+- Marius (EF Geth)
+- Maria (EF RIG)
+- Pawel (Erigon)
+- Pari (EF PandaOps)
+- Sam (EF PandaOps)
+
+## Project 7: Security
+
+This a perpetual project.
+
+**Goal:** Establish security metrics for all of the different components; guest program, zkVMs, GPU orchestration, consensus layer client. Set up monitoring of these metrics and champion hardening initiatives.
+
+**Owners:** ELs, CLs, zkVM teams, EF
+
+**Outputs:**
+- Document on the bar and process to be enlisted as a prover and guest program, in addition to the process for removing and adding more provers and guest programs to the list of supported proof types.
+- Specifications for the relevant proof system components
+    - We should be clear on who should produce what specification and who the specifications are aimed at / what the goal of the specifications is. For the zkVM specs, it will be a joint effort between zkVM teams and the EF.
+- zkVM that follows the security guidelines and proof sizes in EF cryptography research blogpost [TODO: INSERT LINK WHEN PUBLISHED]
+    - This will have provable security as a requirement
+- Create Fork readiness review document
+    - Establish maintenance plan (or requirement) for existing proofs, when the system is upgraded.
+    - This includes decisions on whether we will need bug bounties and audits for optional proofs
+- Formal verification:
+    - Document on what components we want to be formally verified for optional proofs and to which standard (i.e., what exactly is being verified, how, under what assumptions).
+    - Tracker for which zkVM/EL components are formally verified.
+- Continuous threat modeling
+    - Characterization of liveness under propagation failures
+- Documents on prover incentives and the decision tree for needing it in-protocol
+- Dashboard for monitoring coverage of testing, auditing, fuzzing and formal verification.
+- Documented security model and trust assumptions for each component (guest program, zkVM, prover infra, CL/EL, recursion) and overall system
+- Supply-chain security requirements:
+    - Reproducible builds and artifact signing for guest programs, zkVMs, and proof-critical binaries
+- Incident-response and rollback runbook for proof-related issues
+- Differential testing & fuzzing plan for zkVMs and guest programs
+- GPU security requirements (side channels, isolation, driver risks, multi-tenant constraints)
+- All relevant proving systems being listed in https://github.com/ethereum/soundcalc
+
+**Milestones:**
+
+- Agree on proof size, security regime and timelines
+- Figure out what components need specifications and the format/granularity of the specifications
+    Proving system
+        -  Specs on the structure of each zkVMs proving system
+        -  Specs for the recursion topology
+        -  Paper-to-code algorithmic specs
+        -  Precise security proofs for the entire SNARK
+    zkVM circuit definitions
+        - This is the circuit definition for the ISA that the zkVM supports
+        - Figure out what/how we specify this, including the fact that each zkVM may call precompiles differently
+        - Current supported ISAs are defined [here](https://github.com/eth-act/zkvm-standards)
+    Guest programs
+        - This is the code that EL devs will write. However it also includes zkVM specific code for zkVM IO.
+        - Is this code covered under EEST like the normal STF?
+- Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
+- Figure out guarantees around each component; for example:
+    - Can the guest program panic on invalid input?
+    - Will the verifier panic when given an invalid proof?
+    - Is the program assumed to be trusted?
+- Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
+    - Test coverage
+    - Audit coverage
+    - Bug bounties
+    - Stable RTP for some amount of time
+    - Software diversity
+    - Formal verification
+    - Fuzzing
+- Identify the minimum acceptable formal verification requirement for each of the following components:
+    - Guest program
+    - Target specs
+    - SNARK prover
+    - SNARK verifier
+- Establish security and adversary model
+    - Define attacker capabilities
+    - Define trusted vs untrusted components
+    - Define consensus-breaking vs non-consensus-breaking failures
+    - Add formal incident response plan for zkVM provers, verifiers and EL bugs. 
+- Establish and test safe fallback behavior
+**Working Group:**
+- Alex Hicks (EF snarkification)
+- Derek (EF snarkification)
+- Quang Dao (Jolt)
+- George (EF cryptography research)
+- Arantxa (EF cryptography research) 
+- Fredrik (EF Protocol Security)
+- Marius (EF Geth) -- for guest program security
+- Kev (EF zkEVM)
+- Cody (EF zkEVM)
+- Marcin (Lita)
+- zkVM teams for speccing
+- Pari (EF PandaOps)
+- Barnabas (EF PandaOps)
+- Julian (RIG)
+- Mauro (LambdaVM)
+- Maxim Menshikov (Nethermind)
+
+## Project 8: ePBS (External)
+
+**Goal:** To increase the amount of time available to prove a block.
+
+**Owners:** CL devs, EF security
+
+**Note:** This is not a project that we are working on. However, it is an optimization that we need. Without this feature, the amount of time the prover has to create a proof is 1-2 seconds. With this, the amount of time is 6-9 seconds.
+
+**Timeline:** This will be deployed in Glamsterdam. Glamsterdam is expected to be mid 2026.
+
+**Main ask:** We would like to know when ePBS is stable enough so that we can start rebasing work on top of it.
+
+**Working Group:**
+
+- Potuz (Prysm)
+- Terence (Prysm)
+- Justin Traglia (EF security)
+- Mark (Lighthouse)
+- Shane (EPF on Lighthouse)
+- Saulius (Grandine)
+- Nico (Lodestar)
+- Enrico (Teku)
+- Stefan (Teku)
+- Caleb (Nimbus)
+
+**Dependencies:**
+*Downstream:* Consensus Layer integration
+- Without this, the consensus layer attester will always be attesting late
+
+## FAQ on interactions
+
+- How will zkVM teams get the source code to make proofs for a specific EL? (Currently some use RSP)
+    - I would suggest that we add a link to the zkevm.ethereum.org site for each EL. 
+- Where does the CL get the ELF file from?
+    - Nominally, from the release page of the chosen EL.
+- Where does the EL find the zkVM C header files for interop?
+    - zkVM teams will need to document where this is located. I propose that we put it in the zkvm-standards repo, next to the actual standard.
+- Where do zkVM teams find the ELF files or source files for each EL, for local testing?
+- Where does security find the specs for a zkEVM?
+    - This has not been created, though I suggest we also put this on ethproofs and zkevm.ethereum.org
+- What happens if an upgrade is needed between hardforks? (minor patch and critical bug fix)
+    - https://hackmd.io/@kevaundray/B1dE392-Ze
+- How do I know what should be a private input and what should be public?
+    - This will be specified in consensus-specs.
