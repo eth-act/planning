@@ -62,4 +62,15 @@ Teku
 
 ## Project 5: Prover Infrastructure
 
+### Milestones Updates
+
+- Integrate zkVMs into Ere
+  - [Exploration integrating ZisK's cluster](https://github.com/eth-act/ere/compare/han/feature/zisk-network-prover) and [plan](https://github.com/eth-act/ere/issues/277) to integrate it into Ere
+- Test zkboost in isolation with a single and then multiple GPUs
+  - [Add E2E integraton test for zkboost](https://github.com/eth-act/zkboost/pull/8)
+- Allow attesters to use this infrastructure to verify proofs
+  - [Example of running local testnet with zkboost and EWS (execution witness sentry)](https://github.com/eth-act/zkboost/pull/30)
+- Metrics to track prover reliability and pipelining inefficiencies
+  - [Add Prometheus metrics and Grafana dashboard for zkboost](https://github.com/eth-act/zkboost/pull/15)
+
 ## Project 6: Benchmarking and Metrics
