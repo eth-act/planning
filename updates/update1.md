@@ -30,17 +30,13 @@ Zilkworm
 ### Milestone Updates
 
 * **Reproducible guest program ELF builds**
-
-  * Achieved reproducible ELF builds using a Dockerized compiler (`ere-compiler-*zkvm`).
   * An automated test validating ELF reproducibility is available [here](https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090).
 
 * **ELF signing with `minisign`**
-
   * Integrated `minisign` for signing guest program ELFs.
   * Introduced a dedicated binary for pulling and verifying ELFs using `minisign` ([commit](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d)).
 
 * **ELF distribution pipeline**
-
   * The Ethrex ELF distribution pipeline is currently in progress.
   * Implementation is being handled by [Ivan](https://github.com/ilitteri) in this PR: [https://github.com/lambdaclass/ethrex/pull/6019](https://github.com/lambdaclass/ethrex/pull/6019).
 
