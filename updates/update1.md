@@ -16,7 +16,29 @@ Reth
 
 Zilkworm
 
-## Project 2: zkEVM Guest program
+## Project 2: zkEVM Guest program
+### Milestone Updates
+- Reproducible guest program ELF build using Docker (dockerized `ere-compiler-*zkvm`)
+  - A test for ELF reproducibility can be found [here(https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090)]
+- Use `minisign` to sign ELFs
+  - Introduced a [Binary](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d) for `pulling` and `verifying` ELFs using `minisign`
+- Complete ELF distribution pipeline
+  - Ethrex ELF distribution pipeline is currently in progress handled by [Ivan](https://github.com/ivan) at his [PR](https://github.com/lambdaclass/ethrex/pull/6019)
+
+## Project 2: zkEVM Guest Program
+
+### Milestone Updates
+
+* **Reproducible guest program ELF builds**
+  * An automated test validating ELF reproducibility is available [here](https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090).
+
+* **ELF signing with `minisign`**
+  * Integrated `minisign` for signing guest program ELFs.
+  * Introduced a dedicated binary for pulling and verifying ELFs using `minisign` ([commit](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d)).
+
+* **ELF distribution pipeline**
+  * The Ethrex ELF distribution pipeline is currently in progress.
+  * Implementation is being handled by [Ivan](https://github.com/ilitteri) in this PR: [https://github.com/lambdaclass/ethrex/pull/6019](https://github.com/lambdaclass/ethrex/pull/6019).
 
 Besu
 
