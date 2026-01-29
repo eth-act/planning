@@ -79,6 +79,31 @@ Nimbus
 
 Prysm
 
+Initial work done by [developeruche](https://github.com/developeruche) and [syjn99](https://github.com/syjn99):
+- https://github.com/OffchainLabs/prysm/pull/16003
+
+Continuation moved in a branch directly in the Offchain Labs Prysm repository:
+- https://github.com/OffchainLabs/prysm/pull/16270
+
+Implemented so far:
+- Execution proof via specific ENR field
+- Dummy proof production
+- Proof gossiping on a specific subnet (broadcast/receive)
+- RPC proof by root handler / requester
+- Proofs storage on disk (quite similar to data column sidecars)
+- Block importation rule modified if choosing to relying on execution proofs
+
+[syjn99](https://github.com/syjn99) has a branch:
+- https://github.com/syjn99/prysm/commits/ethproofs-demo/
+
+that will be used for a demo including:
+- Separate the prover from the beacon node
+- Accept execution proofs via Beacon API (POST /eth/v1/beacon/pool/execution_proofs)
+
+[Source](https://discord.com/channels/595666850260713488/1457344719876260084/1465091645128315054)
+
+During the next week, these 2 branches will be merged.
+
 Teku
 
 
