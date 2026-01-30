@@ -121,3 +121,14 @@ Teku
   - [Add Prometheus metrics and Grafana dashboard for zkboost](https://github.com/eth-act/zkboost/pull/15)
 
 ## Project 6: Benchmarking and Metrics
+
+
+## Project 7: Security
+
+M2 and M3:
+ - A work in progress uses AI to extract a [Python implementation](https://github.com/codygunton/pil2-proofman/tree/python-spec) of ZisK's proof system. This will give a concrete data point for the conversation on how specs shoudl look.
+
+M5: 
+ - A [blog post](https://zkevm.ethereum.foundation/blog/zkevm-security-overview) on the question of L1 zkEVM security from the holistic point of view. 
+ - [Merged:](https://github.com/eth-act/zkevm-test-monitor/pull/11) continuous monitoring of Pico for RISC-V compliance. Current compliance is 46/47 RV32IM architecture tests.
+ - [Under review:](https://github.com/matter-labs/zksync-airbender/pull/175) RISC-V compliance testing for Airbender. Current compliance: 42/47 RV64IM architecture tests.
