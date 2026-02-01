@@ -69,6 +69,29 @@ Additionally, [the following commits](https://github.com/eth-act/wasrisc/commits
 
 ## Project 4: Consensus Layer Integration
 
+### Francesco Risitano's contribution
+
+**Spec work:**
+- Refactored EIP-8025 consensus specs — [ethereum/consensus-specs#4828(merged)](https://github.com/ethereum/consensus-specs/pull/4828)
+- Execution-APIs PR open: [ethereum/execution-apis#735(WIP)](https://github.com/ethereum/execution-apis/pull/735)
+- Beacon-APIs PR open: [ethereum/beacon-APIs#569(WIP)](https://github.com/ethereum/beacon-APIs/pull/569)
+- Reviewed BiB (Block-in-Blobs) EIP — [ethereum/EIPs#11212(WIP)](https://github.com/ethereum/EIPs/pull/11212)
+- Deprecated BiB-related specs in favour of above formalised EIP:
+  - [ethereum/execution-apis#736(DEPRECATED)](https://github.com/ethereum/execution-apis/pull/736)
+  - [ethereum/consensus-specs#4847(DEPRECATED)](https://github.com/ethereum/consensus-specs/pull/4847)
+- Next: Refactor EIP-8025 specs to align with modifications concluded from discussions and introduced in lighthouse implementation.
+
+**Lighthouse implementation (in progress):**
+- Working on implementation of the refactored specs [`feat/eip8025(WIP)`](https://github.com/eth-act/lighthouse/tree/feat/eip8025) branch
+- Next: forkchoice tests, networking integration, Kurtosis E2E tests
+- Optimistic target: preliminary demo ready for breakout call
+
+**Misc:**
+- Improved `make lint` in consensus-specs — [ethereum/consensus-specs#4838(merged)](https://github.com/ethereum/consensus-specs/pull/4838)
+- Gained familiarity with specs, objectives, tools and misc repos relevant to EIP-8025
+- Next: Prepare slides for breakout call
+
+
 Grandine
 
 Lighthouse
