@@ -16,6 +16,12 @@ Reth
 
 Zilkworm
 
+Specs:
+- Peter from STEEL created a [draft state tracker PR](https://github.com/ethereum/execution-specs/pull/2063). This will be required for execution witness generation.
+- Ignacio [built on top for also tracking bytecodes and ancestor headers](https://github.com/petertdavies/execution-specs/pull/5) would look like, since this is also required for execution witness generation.
+- Ignacio implemented an [e2e execution witness generation](https://github.com/jsign/execution-specs/pull/1) in the spec. It has its own state tracker that we could replace with Peter's state tracker, but also has many new components required for execution witness generation (e.g. MPT pre-state and branch colapse node detection, integration with testing framework, etc). Main goal is to help discussing how to move forward in steps in the spec.
+- Ignacio wrote a deep dive into [OpenVM MPT tree and their alternative way of passing `nodes` in the ExecutionWitness](https://hackmd.io/@jsign/ethereum-zkvm-openvm-guest-input-and-optimized-mpt).
+
 ## Project 2: zkEVM Guest program
 ### Milestone Updates
 - Reproducible guest program ELF build using Docker (dockerized `ere-compiler-*zkvm`)
@@ -43,12 +49,14 @@ Zilkworm
 Besu
 
 EthRex
+- Ignacio [implemented full EIP-8025 support](https://github.com/eth-act/ere-guests/pull/7) in ere-guests.
 
 Geth
 
 Nethermind
 
 Reth
+- Ignacio [implemented full EIP-8025 support](https://github.com/eth-act/ere-guests/pull/7) in ere-guests.
 
 Zilkworm
 
@@ -122,6 +130,9 @@ Teku
 
 ## Project 6: Benchmarking and Metrics
 
+- Ignacio did a Zisk GPU scaling exploration in [this notebook](https://hackmd.io/@jsign/eth-zkvm-zisk-gpu-scaling).
+- Stefan and Han investigated further NUMA setup for Zisk which can explain bottlenecks in the document above.
+- Repricings for block proving [Part 1](https://zkevm.ethereum.foundation/blog/repricings-for-block-proving-part-1) and [Part 2](https://zkevm.ethereum.foundation/blog/repricings-for-block-proving-part-2) were published.
 
 ## Project 7: Security
 
