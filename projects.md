@@ -309,26 +309,26 @@ This a perpetual project.
 
 **Milestones:**
 
-- Agree on proof size, security regime and timelines
-- Figure out what components need specifications and the format/granularity of the specifications
-    Proving system
-        -  Specs on the structure of each zkVMs proving system
-        -  Specs for the recursion topology
-        -  Paper-to-code algorithmic specs
-        -  Precise security proofs for the entire SNARK
-    zkVM circuit definitions
+- **M1:** Agree on proof size, security regime and timelines
+- **M2:** Figure out what components need specifications and the format/granularity of the specifications
+    - Proving system
+        - Specs on the structure of each zkVMs proving system
+        - Specs for the recursion topology
+        - Paper-to-code algorithmic specs
+        - Precise security proofs for the entire SNARK
+    - VM circuit definitions
         - This is the circuit definition for the ISA that the zkVM supports
         - Figure out what/how we specify this, including the fact that each zkVM may call precompiles differently
         - Current supported ISAs are defined [here](https://github.com/eth-act/zkvm-standards)
-    Guest programs
+    - Guest programs
         - This is the code that EL devs will write. However it also includes zkVM specific code for zkVM IO.
         - Is this code covered under EEST like the normal STF?
-- Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
-- Figure out guarantees around each component; for example:
+- **M3:** Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
+- **M4:** Figure out guarantees around each component; for example:
     - Can the guest program panic on invalid input?
     - Will the verifier panic when given an invalid proof?
     - Is the program assumed to be trusted?
-- Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
+- **M5:** Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
     - Test coverage
     - Audit coverage
     - Bug bounties
@@ -336,17 +336,18 @@ This a perpetual project.
     - Software diversity
     - Formal verification
     - Fuzzing
-- Identify the minimum acceptable formal verification requirement for each of the following components:
+- **M6:** Identify the minimum acceptable formal verification requirement for each of the following components:
     - Guest program
     - Target specs
     - SNARK prover
     - SNARK verifier
-- Establish security and adversary model
+- **M7:** Establish security and adversary model
     - Define attacker capabilities
     - Define trusted vs untrusted components
     - Define consensus-breaking vs non-consensus-breaking failures
-    - Add formal incident response plan for zkVM provers, verifiers and EL bugs. 
-- Establish and test safe fallback behavior
+    - Add formal incident response plan for zkVM provers, verifiers and EL bugs.
+- **M8:** Establish and test safe fallback behavior
+
 **Working Group:**
 - Alex Hicks (EF snarkification)
 - Derek (EF snarkification)
