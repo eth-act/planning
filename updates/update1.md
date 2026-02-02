@@ -22,15 +22,6 @@ Specs:
 - Ignacio implemented an [e2e execution witness generation](https://github.com/jsign/execution-specs/pull/1) in the spec. It has its own state tracker that we could replace with Peter's state tracker, but also has many new components required for execution witness generation (e.g. MPT pre-state and branch colapse node detection, integration with testing framework, etc). Main goal is to help discussing how to move forward in steps in the spec.
 - Ignacio wrote a deep dive into [OpenVM MPT tree and their alternative way of passing `nodes` in the ExecutionWitness](https://hackmd.io/@jsign/ethereum-zkvm-openvm-guest-input-and-optimized-mpt).
 
-## Project 2: zkEVM Guest program
-### Milestone Updates
-- Reproducible guest program ELF build using Docker (dockerized `ere-compiler-*zkvm`)
-  - A test for ELF reproducibility can be found [here(https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090)]
-- Use `minisign` to sign ELFs
-  - Introduced a [Binary](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d) for `pulling` and `verifying` ELFs using `minisign`
-- Complete ELF distribution pipeline
-  - Ethrex ELF distribution pipeline is currently in progress handled by [Ivan](https://github.com/ivan) at his [PR](https://github.com/lambdaclass/ethrex/pull/6019)
-
 ## Project 2: zkEVM Guest Program
 
 ### Milestone Updates
