@@ -216,13 +216,13 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Integrate zkVMs into Ethproofs
-- Ensure GPU implementations are open source
-- Integrate zkVMs into Ere
-- Test zkboost in isolation with a single and then multiple GPUs
+- **M1:** Integrate zkVMs into Ethproofs
+- **M2:** Ensure GPU implementations are open source
+- **M3:** Integrate zkVMs into Ere
+- **M4:** Test zkboost in isolation with a single and then multiple GPUs
     - This does not need to be with the stateless guest program as we mainly care about testing the infrastructure and not necessarily the stateless validation program
-- Metrics to track prover reliability and pipelining inefficiencies
-- Allow attesters to use this infrastructure to verify proofs
+- **M5:** Metrics to track prover reliability and pipelining inefficiencies
+- **M6:** Allow attesters to use this infrastructure to verify proofs
 
 **Working Group:**
 
@@ -260,9 +260,9 @@ This a perpetual project.
 
 **Milestones:**
 
-- Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
-- Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
-- Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
+- **M1:** Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
+- **M2:** Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
+- **M3:** Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
     - This may be the case if re-execution/proving resources are too uncorrelated.
 
 **Working Group:**
