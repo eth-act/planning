@@ -139,12 +139,12 @@ Below we describe sub-projects that make the above workflow possible.
 - Codified assumptions; for example, alignment assumptions, assumptions on memory layout, trap semantics, bootloader, can the ELF have data in code, etc
 
 **Milestones:**
-- Standardize minimal hardware targets that:
+- M1: Standardize minimal hardware targets that:
     - Each EL can compile to
     - Each zkVM will target
-- Standardize the zkVM precompiles available via C headers
-- Standardize the interface for accessing IO via C headers
-- Standardize assumptions made about the ELF and the zkVM's processing of the ELF
+- M2: Standardize the zkVM precompiles available via C headers
+- M3: Standardize the interface for accessing IO via C headers
+- M4: Standardize assumptions made about the ELF and the zkVM's processing of the ELF
 
 **Dependencies:** None
 
@@ -181,9 +181,11 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Implement modifications according to the reference specification
-- Port modifications in consensus-specs
-- All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+- M1: Finalize consensus specs
+    - This includes changes needed in execution-apis repo and beacon-api repo
+- M2: Spec out changes needed for Block-in-Blobs
+- M3: All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+
 - [Internal EF rollout + onboarding plan](https://hackmd.io/@kevaundray/H1x1K-ckWg)
 
 **Dependencies:**
