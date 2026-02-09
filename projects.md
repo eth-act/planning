@@ -139,12 +139,12 @@ Below we describe sub-projects that make the above workflow possible.
 - Codified assumptions; for example, alignment assumptions, assumptions on memory layout, trap semantics, bootloader, can the ELF have data in code, etc
 
 **Milestones:**
-- M1: Standardize minimal hardware targets that:
+- **M1:** Standardize minimal hardware targets that:
     - Each EL can compile to
     - Each zkVM will target
-- M2: Standardize the zkVM precompiles available via C headers
-- M3: Standardize the interface for accessing IO via C headers
-- M4: Standardize assumptions made about the ELF and the zkVM's processing of the ELF
+- **M2:** Standardize the zkVM precompiles available via C headers
+- **M3:** Standardize the interface for accessing IO via C headers
+- **M4:** Standardize assumptions made about the ELF and the zkVM's processing of the ELF
 
 **Dependencies:** None
 
