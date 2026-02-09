@@ -43,40 +43,37 @@ No update
 
 No update
 
-### Milestone Updates
+### M2 — Reproducible ELF builds and distribution
 
-### Ere + zkBoost
+- An automated test validating ELF reproducibility is available [here](https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090).
+- Integrated `minisign` for signing guest program ELFs.
+- Introduced a dedicated binary for pulling and verifying ELFs using `minisign` ([commit](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d)).
 
-**Reproducible guest program ELF builds**
-  * An automated test validating ELF reproducibility is available [here](https://github.com/eth-act/ere/commit/0e41aa7e95aa02df84ede0fcd04c1b0b45cfa090).
+### M3 — Client implementations
 
-* **ELF signing with `minisign`**
-  * Integrated `minisign` for signing guest program ELFs.
-  * Introduced a dedicated binary for pulling and verifying ELFs using `minisign` ([commit](https://github.com/eth-act/zkboost/commit/636bea4e223d69de8df0d151cd3be39974371d3d)).
-
-### Besu
+#### Besu
 
 No update
 
-### EthRex
+#### EthRex
 
 - [Ignacio] [Implemented full EIP-8025 support](https://github.com/eth-act/ere-guests/pull/7) in ere-guests.
 - [Ivan] ELF distribution pipeline currently in progress: [ethrex#6019](https://github.com/lambdaclass/ethrex/pull/6019).
 - [Ivan] Decoupled L1 and L2 guest programs into separate modules — [ethrex#5818](https://github.com/lambdaclass/ethrex/pull/5818).
 
-### Geth
+#### Geth
 
 No update
 
-### Nethermind
+#### Nethermind
 
 No update
 
-### Reth
+#### Reth
 
 - [Ignacio] [Implemented full EIP-8025 support](https://github.com/eth-act/ere-guests/pull/7) in ere-guests.
 
-### Zilkworm
+#### Zilkworm
 
 No update
 
