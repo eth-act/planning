@@ -139,12 +139,12 @@ Below we describe sub-projects that make the above workflow possible.
 - Codified assumptions; for example, alignment assumptions, assumptions on memory layout, trap semantics, bootloader, can the ELF have data in code, etc
 
 **Milestones:**
-- Standardize minimal hardware targets that:
+- **M1:** Standardize minimal hardware targets that:
     - Each EL can compile to
     - Each zkVM will target
-- Standardize the zkVM precompiles available via C headers
-- Standardize the interface for accessing IO via C headers
-- Standardize assumptions made about the ELF and the zkVM's processing of the ELF
+- **M2:** Standardize the zkVM precompiles available via C headers
+- **M3:** Standardize the interface for accessing IO via C headers
+- **M4:** Standardize assumptions made about the ELF and the zkVM's processing of the ELF
 
 **Dependencies:** None
 
@@ -181,9 +181,11 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Implement modifications according to the reference specification
-- Port modifications in consensus-specs
-- All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+- M1: Finalize consensus specs
+    - This includes changes needed in execution-apis repo and beacon-api repo
+- M2: Spec out changes needed for Block-in-Blobs
+- M3: All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+
 - [Internal EF rollout + onboarding plan](https://hackmd.io/@kevaundray/H1x1K-ckWg)
 
 **Dependencies:**
@@ -214,13 +216,13 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Integrate zkVMs into Ethproofs
-- Ensure GPU implementations are open source
-- Integrate zkVMs into Ere
-- Test zkboost in isolation with a single and then multiple GPUs
+- **M1:** Integrate zkVMs into Ethproofs
+- **M2:** Ensure GPU implementations are open source
+- **M3:** Integrate zkVMs into Ere
+- **M4:** Test zkboost in isolation with a single and then multiple GPUs
     - This does not need to be with the stateless guest program as we mainly care about testing the infrastructure and not necessarily the stateless validation program
-- Metrics to track prover reliability and pipelining inefficiencies
-- Allow attesters to use this infrastructure to verify proofs
+- **M5:** Metrics to track prover reliability and pipelining inefficiencies
+- **M6:** Allow attesters to use this infrastructure to verify proofs
 
 **Working Group:**
 
@@ -258,9 +260,9 @@ This a perpetual project.
 
 **Milestones:**
 
-- Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
-- Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
-- Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
+- **M1:** Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
+- **M2:** Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
+- **M3:** Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
     - This may be the case if re-execution/proving resources are too uncorrelated.
 
 **Working Group:**
@@ -309,26 +311,26 @@ This a perpetual project.
 
 **Milestones:**
 
-- Agree on proof size, security regime and timelines
-- Figure out what components need specifications and the format/granularity of the specifications
-    Proving system
-        -  Specs on the structure of each zkVMs proving system
-        -  Specs for the recursion topology
-        -  Paper-to-code algorithmic specs
-        -  Precise security proofs for the entire SNARK
-    zkVM circuit definitions
+- **M1:** Agree on proof size, security regime and timelines
+- **M2:** Figure out what components need specifications and the format/granularity of the specifications
+    - Proving system
+        - Specs on the structure of each zkVMs proving system
+        - Specs for the recursion topology
+        - Paper-to-code algorithmic specs
+        - Precise security proofs for the entire SNARK
+    - VM circuit definitions
         - This is the circuit definition for the ISA that the zkVM supports
         - Figure out what/how we specify this, including the fact that each zkVM may call precompiles differently
         - Current supported ISAs are defined [here](https://github.com/eth-act/zkvm-standards)
-    Guest programs
+    - Guest programs
         - This is the code that EL devs will write. However it also includes zkVM specific code for zkVM IO.
         - Is this code covered under EEST like the normal STF?
-- Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
-- Figure out guarantees around each component; for example:
+- **M3:** Figure out what the end-game for specs looks like and what the value in having teams write specs in the short term will be
+- **M4:** Figure out guarantees around each component; for example:
     - Can the guest program panic on invalid input?
     - Will the verifier panic when given an invalid proof?
     - Is the program assumed to be trusted?
-- Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
+- **M5:** Establish a minimal go/no-go framework for recommending the use of ZKEVMs for scaling. Some possible metrics:
     - Test coverage
     - Audit coverage
     - Bug bounties
@@ -336,17 +338,18 @@ This a perpetual project.
     - Software diversity
     - Formal verification
     - Fuzzing
-- Identify the minimum acceptable formal verification requirement for each of the following components:
+- **M6:** Identify the minimum acceptable formal verification requirement for each of the following components:
     - Guest program
     - Target specs
     - SNARK prover
     - SNARK verifier
-- Establish security and adversary model
+- **M7:** Establish security and adversary model
     - Define attacker capabilities
     - Define trusted vs untrusted components
     - Define consensus-breaking vs non-consensus-breaking failures
-    - Add formal incident response plan for zkVM provers, verifiers and EL bugs. 
-- Establish and test safe fallback behavior
+    - Add formal incident response plan for zkVM provers, verifiers and EL bugs.
+- **M8:** Establish and test safe fallback behavior
+
 **Working Group:**
 - Alex Hicks (EF snarkification)
 - Derek (EF snarkification)
