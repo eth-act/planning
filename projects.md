@@ -139,12 +139,12 @@ Below we describe sub-projects that make the above workflow possible.
 - Codified assumptions; for example, alignment assumptions, assumptions on memory layout, trap semantics, bootloader, can the ELF have data in code, etc
 
 **Milestones:**
-- Standardize minimal hardware targets that:
+- **M1:** Standardize minimal hardware targets that:
     - Each EL can compile to
     - Each zkVM will target
-- Standardize the zkVM precompiles available via C headers
-- Standardize the interface for accessing IO via C headers
-- Standardize assumptions made about the ELF and the zkVM's processing of the ELF
+- **M2:** Standardize the zkVM precompiles available via C headers
+- **M3:** Standardize the interface for accessing IO via C headers
+- **M4:** Standardize assumptions made about the ELF and the zkVM's processing of the ELF
 
 **Dependencies:** None
 
@@ -181,9 +181,11 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Implement modifications according to the reference specification
-- Port modifications in consensus-specs
-- All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+- M1: Finalize consensus specs
+    - This includes changes needed in execution-apis repo and beacon-api repo
+- M2: Spec out changes needed for Block-in-Blobs
+- M3: All clients should use the consensus-specs and ensure that they are passing the relevant test vectors
+
 - [Internal EF rollout + onboarding plan](https://hackmd.io/@kevaundray/H1x1K-ckWg)
 
 **Dependencies:**
@@ -214,13 +216,13 @@ Below we describe sub-projects that make the above workflow possible.
 
 **Milestones:**
 
-- Integrate zkVMs into Ethproofs
-- Ensure GPU implementations are open source
-- Integrate zkVMs into Ere
-- Test zkboost in isolation with a single and then multiple GPUs
+- **M1:** Integrate zkVMs into Ethproofs
+- **M2:** Ensure GPU implementations are open source
+- **M3:** Integrate zkVMs into Ere
+- **M4:** Test zkboost in isolation with a single and then multiple GPUs
     - This does not need to be with the stateless guest program as we mainly care about testing the infrastructure and not necessarily the stateless validation program
-- Metrics to track prover reliability and pipelining inefficiencies
-- Allow attesters to use this infrastructure to verify proofs
+- **M5:** Metrics to track prover reliability and pipelining inefficiencies
+- **M6:** Allow attesters to use this infrastructure to verify proofs
 
 **Working Group:**
 
@@ -258,9 +260,9 @@ This a perpetual project.
 
 **Milestones:**
 
-- Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
-- Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
-- Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
+- **M1:** Benchmark all available guest programs against all available zkVMs locally (single then multi GPUs)
+- **M2:** Integrate metrics into [pandaOps' lab](https://lab.ethpandaops.io/)
+- **M3:** Investigate whether we need multidimensional metering/pricing (EIP-8011 and EIP-7999)
     - This may be the case if re-execution/proving resources are too uncorrelated.
 
 **Working Group:**
