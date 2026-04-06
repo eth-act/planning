@@ -1,0 +1,131 @@
+# March 2026 Updates
+
+General notes:
+- [Ignacio & Cody] A [presentation of zkEVM in Ethereum](https://www.youtube.com/watch?v=Z0Nad1wB_pY) was done for EPF Study Group.
+
+## Project 1: Execution Witness
+
+### M1 — Finalize ExecutionWitness in execution specs
+
+- [Ignacio] Execution witness completeness tests were created:
+    - Created releases: [zkevm@v0.3.0](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.0), [zkevm@v0.3.1](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.1), [zkevm@v0.3.2](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.2), [zkevm@v0.3.3](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.3)
+    - In total, 139 new tests were created covering a wide range of edge cases for all execution witness fields. Some remaining cases are still planned mostly covering very concrete failure cases (e.g. OOG or stack overflow) and their effects on the execution witness.
+    - All releases are done in `projects/zkevm-bal-devnet-3` which is `projects/zkevm` rebased on top of the latest BAL-devnet release. This is doen to ease ELs running the test in their main active braches.
+- [Ignacio] Specs were hardened thanks to created tests described above. 
+
+### M2 — Client implementations
+
+#### Besu
+
+#### EthRex
+
+- [Ivan] Actively started working in running latest release of execution witness, passing all tests at zkevm@v0.3.2 release. Actively working on the latest release.
+
+#### Geth
+
+- [Kev] Make adjustements to the codebase in order to run released tests ([PR1](https://github.com/ethereum/go-ethereum/pull/33996), [PR2](https://github.com/ethereum/go-ethereum/pull/34007)).
+
+#### Nethermind
+
+#### Reth
+
+- [figtracer] Started working on adjusting branches accordingly to run the latest execution witness tests.
+
+#### Zilkworm
+
+- [Som] Published an essay going through [correctness of execution witness verification](https://hackmd.io/@somnergy/witness-trie-validation-zilkworm]) for Zilkworm as a result of discussions with Kev/Ignacio.
+
+## Project 2: zkEVM Guest Program
+
+### M1 — Finalize guest program in execution specs
+
+- [Ignacio] Specs are complete in [`src/ethereum/forks/amsterdam` in `execution-spects@projects/zkevm`](https://github.com/ethereum/execution-specs/tree/projects/zkevm/src/ethereum/forks/amsterdam).
+- [Ignacio] Tests convering correct guest program behavior in invalid inputs were created:
+    - Created releases: [zkevm@v0.3.0](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.0), [zkevm@v0.3.1](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.1), [zkevm@v0.3.2](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.2), [zkevm@v0.3.3](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.3)
+    - In total, 25 new tests were created covering invalid execution witness scenarios that must result in the guest program detecting the execution isn't possible. This is important to ensure the guest program is correctly validating the execution witness and not just assuming it's correct, which would be a critical security issue.
+    - All releases are done in `projects/zkevm-bal-devnet-3` which is `projects/zkevm` rebased on top of the latest BAL-devnet release. This is doen to ease ELs running the test in their main active braches.
+
+
+### M2 — Reproducible ELF builds and distribution
+
+### M3 — Client implementations
+
+#### Besu
+
+#### EthRex
+
+#### Geth
+
+#### Nethermind
+
+#### Reth
+
+#### Zilkworm
+
+
+## Project 3: zkEVM Guest API standardization
+
+### M1 — Standardize minimal hardware targets
+
+### M2 — Standardize zkVM precompiles via C headers
+
+### M3 — Standardize the interface for accessing IO via C headers
+
+### M4 — Standardize assumptions about the ELF and zkVM processing
+
+## Project 4: Consensus Layer Integration
+
+### M1 — Finalize consensus specs
+
+### M2 -- Spec out BiB changes
+
+### M3 -- Client implementations
+
+#### Lighthouse
+
+#### Prysm
+
+#### Grandine
+
+#### Lodestar
+
+#### Nimbus
+
+#### Teku
+
+## Project 5: Prover Infrastructure
+
+### M1 — Integrate zkVMs into Ethproofs
+
+### M2 — Ensure GPU implementations are open source
+
+### M3 — Integrate zkVMs into Ere
+
+### M4 — Test zkboost in isolation with single and then multiple GPUs
+
+### M5 — Metrics to track prover reliability and pipelining inefficiencies
+
+### M6 — Allow attesters to use this infrastructure to verify proofs
+
+## Project 6: Benchmarking and Metrics
+
+- Lambdaclass released [libssz](https://github.com/lambdaclass/libssz) a new highly performant Rust SSZ library with `no_std` support. [Blogpost](https://blog.lambdaclass.com/libssz-a-blazing-fast-zkvm-friendly-ssz-rust-library/).
+
+### M1 — Benchmark guest programs against zkVMs locally
+
+- [Ignacio] [Integrated libssz into ere-guests](https://github.com/eth-act/ere-guests/pull/26) which produced a ~5% overall proving time speedup and be compliant with no-std guest program requirement.
+- [Ignacio] [ziskemu profiling done for v0.16.1](https://hackmd.io/@jsign/eth-ziskv0_16_1-air-cost-reth-ethrex). Revealed ~2x proving cost improvement, mostly speeding up in keccak related workload and materialized speedup from libssz integration. 
+
+### M2 — Integrate metrics into pandaOps' lab
+
+### M3 — Investigate multidimensional metering/pricing
+
+- [Ignacio] Worked on integrating Maria's G* repricing analysis into zkEVM benchmarking results. [Branch](https://github.com/misilva73/evm-gas-repricings/compare/main...jsign:evm-gas-repricings:jsign-repricing?expand=1) and [automated dashboard](https://eth-act.github.io/zkevm-benchmark-runs/proposal/). More upcoming collaboration with Maria on how to smooth out the integration.
+
+## Project 7: Security
+
+### M2 — Figure out what components need specifications
+
+### M3 — Figure out what the end-game for specs looks like
+
+### M5 — Establish a minimal go/no-go framework
