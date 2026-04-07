@@ -95,8 +95,18 @@
 
 ## Project 7: Security
 
+### M1 — Agree on proof size, security regime and timelines
+
 ### M2 — Figure out what components need specifications
 
 ### M3 — Figure out what the end-game for specs looks like
 
+### M4 — Figure out guarantees around each component
+
 ### M5 — Establish a minimal go/no-go framework
+
+### M6 — Identify minimum acceptable formal verification requirements
+
+### M7 — Establish security and adversary model
+
+### M8 — Establish and test safe fallback behavior
