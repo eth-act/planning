@@ -15,18 +15,18 @@
 
 #### Ethrex
 
-- [Gaston] https://github.com/lambdaclass/ethrex/pull/6527Target zkevm@v0.3.3 fixtures and extend run for all tests (not only EIP-8025 ones). 
+- [Gaston] [Target zkevm@v0.3.3 fixtures and extend run for all tests](https://github.com/lambdaclass/ethrex/pull/6527) (not only EIP-8025 ones). 
 
 #### Geth
 
 
 #### Nethermind
 
-- [Team] Making general progress on execution witness generation (https://www.nethermind.io/blog/road-to-zk-implementation-nethermind-clients-path-to-proofsblog post)
+- [Team] Making general progress on execution witness generation ([blog post](https://www.nethermind.io/blog/road-to-zk-implementation-nethermind-clients-path-to-proofs))
 
 #### Reth
 
-- [Ignacio] Support generating legacy and canonical execution witnesses (https://github.com/paradigmxyz/reth/pull/22289long due PR merged).
+- [Ignacio] [Support generating legacy and canonical execution witnesses](https://github.com/paradigmxyz/reth/pull/22289) (long due PR merged).
 - [lazovicff] [Ongoing work](https://github.com/paradigmxyz/stateless/pull/25) supporting official execution witness releases.
 
 #### Nimbus
@@ -40,7 +40,7 @@
 
 ### M1 — Finalize guest program in execution specs
 
-- [Ignacio] https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.4zkevm@v0.3.4 released with multiple fixes and improvements.
+- [Ignacio] [zkevm@v0.3.4](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.4) released with multiple fixes and improvements.
 - [Ignacio] On-going work to wrap first stable version, in particular: `ChainConfig` and prefix-schema identifier in the stateless input for fork and forward compatibility.
 - [Ignacio] Proposed EIP-7709 in ACDE ([presentation](https://docs.google.com/presentation/d/1raEGijf92cUBeCGeTzQusItvIVUAjRcLzzlXtgL9jcU/edit?usp=sharing) & [long-form analysis document](https://hackmd.io/@jsign/EIP-7709-Hegota-proposal)).
 
@@ -64,7 +64,7 @@
 
 #### Nethermind
 
-- [Team] Making general progress on guest program (https://www.nethermind.io/blog/road-to-zk-implementation-nethermind-clients-path-to-proofsblog post)
+- [Team] Making general progress on guest program ([blog post](https://www.nethermind.io/blog/road-to-zk-implementation-nethermind-clients-path-to-proofs))
 - [Ruben] Helping discuss upcoming guest program input design.
 
 #### Reth
