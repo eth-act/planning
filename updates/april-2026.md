@@ -5,7 +5,7 @@
 ### M1 — Finalize ExecutionWitness in execution specs
 
 - [Ignacio] [zkevm@v0.3.4](https://github.com/ethereum/execution-spec-tests/releases/tag/zkevm%40v0.3.4zkevm@v0.3.4) released with multiple fixes and improvements.
-- [Ignacio] On-going work to include missing `public_keys` as part of the execution witness.
+- [Ignacio] On-going work: include `public_keys`, proper `chain_config`, and prefix schema-id for proper SSZ-deserialization.
 
 
 ### M2 — Client implementations
