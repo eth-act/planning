@@ -29,6 +29,10 @@
 - [Ignacio] Support generating legacy and canonical execution witnesses (https://github.com/paradigmxyz/reth/pull/22289long due PR merged).
 - [lazovicff] [Ongoing work](https://github.com/paradigmxyz/stateless/pull/25) supporting official execution witness releases.
 
+#### Nimbus
+
+ - [deme] Working in running EEST releases.
+
 #### Zilkworm
 
 
