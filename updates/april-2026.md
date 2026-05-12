@@ -36,6 +36,7 @@
 #### Zilkworm
 
 
+
 ## Project 2: zkEVM Guest Program
 
 ### M1 — Finalize guest program in execution specs
@@ -48,6 +49,7 @@
 ### M2 — Reproducible ELF builds and distribution
 
 ### M3 — Client implementations
+- [Uche] Made a PR implementing a spec compliant guest program using zilkworm (https://github.com/eth-act/ere-guests/pull/38), this was tested using SP1 hypercube in this test [setup](https://github.com/developeruche/z6m-sp1).
 
 #### Besu
 
