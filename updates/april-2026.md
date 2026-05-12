@@ -115,11 +115,17 @@
 
 ### M3 — Integrate zkVMs into Ere
 
+- [Han] [Split prover and verifier](https://github.com/eth-act/ere/pull/332) and [release program verification key in `ere-guests`](https://github.com/eth-act/ere-guests/pull/37): The verifier can verify proofs given only the program verification key.
+- [Han] [Add crate `ere-verifier` for zkboost in-process verifier integration](https://github.com/eth-act/ere/pull/359)
+
 ### M4 — Test zkboost in isolation with single and then multiple GPUs
 
 ### M5 — Metrics to track prover reliability and pipelining inefficiencies
 
 ### M6 — Allow attesters to use this infrastructure to verify proofs
+
+- [Han] [Auto resoluation of `ere` and `ere-guests` versions for `zkboost` in `ethereum-package`](https://github.com/ethpandaops/ethereum-package/pull/1368)
+- [Stefan / Han] [Add in-process ZisK verifier in `zkboost` to verify proofs without spinning up an `ere-server`](https://github.com/eth-act/zkboost/pull/61) and [extend to all zkVM verifiers](https://github.com/eth-act/zkboost/pull/63)
 
 ## Project 6: Benchmarking and Metrics
 
