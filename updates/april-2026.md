@@ -92,13 +92,30 @@
 
 ### M1 — Finalize consensus specs
 
+- [Francesco] [Reactivated EIP-8025 from Stagnant with a full rewrite](https://github.com/ethereum/EIPs/pull/11604).
+- [Francesco] [General refactor of the consensus specs merged](https://github.com/ethereum/consensus-specs/pull/5055): proof node API update, dynamic proof type capability advertisement, and related changes.
+- [Francesco] [Bumped `MAX_PROOF_SIZE` to 400 KiB](https://github.com/ethereum/consensus-specs/pull/5162).
+- [Francesco] Removed validator proof resigning proposal from the spec — design decision captured in [HackMD writeup](https://hackmd.io/@frisitano/HkCzVt-a-x).
+- [Francesco] [Support optional execution and proof engines being considered via optimistic sync](https://github.com/ethereum/consensus-specs/pull/5161).
+- [Francesco] [Updated PR for EIP-8025 beacon-APIs endpoints](https://github.com/ethereum/beacon-APIs/pull/569).
+- [Francesco] [Proposed opt-in witness retrieval via flag on existing engine methods](https://github.com/ethereum/execution-apis) (execution-apis proposal).
+- [Francesco] Opened [`eth-act/execution-proofs-api#1`](https://github.com/eth-act/execution-proofs-api/issues/1) capturing the proof-type encoding discussion.
+- [Francesco] Network proof gossip writeup for EIP-8025 — [HackMD](https://hackmd.io/@frisitano/H1XJS3XTZx).
+
 ### M2 -- Spec out BiB changes
 
 ### M3 -- Client implementations
 
 #### Kurtosis / ethereum-package
 
+- [Francesco] [GPU ere prover support landed in ethereum-package](https://github.com/ethpandaops/ethereum-package/pull/1353), with kurtosis GPU driver / config specification and `shm-size` + ulimits handling.
+- [Francesco / Manu] Lighthouse ↔ Prysm interop devnet ran successfully.
+
+
 #### Lighthouse
+
+- [Francesco] Maintainer-facing Lighthouse architecture writeup for the EIP-8025 implementation — [HackMD](https://hackmd.io/F4RtMrHgSm2Flw8iUbq2xA?view).
+- [Francesco] Validator resigning removed from the Lighthouse implementation to align with the spec change.
 
 #### Prysm
 
