@@ -59,6 +59,7 @@
 - [Ignacio] Support canonical SSZ bytes as guest program input ([in review](https://github.com/lambdaclass/ethrex/pull/6550)).
 - [Ben] [Wire missing zkVM precompile for `hash_tree_root` usage for public inputs](https://github.com/lambdaclass/ethrex/pull/6549)
 - [Ben] [Remove rayon](https://github.com/lambdaclass/ethrex/pull/6560) as guest program dependency
+- [Ben] [Remove sync](https://github.com/lambdaclass/ethrex/pull/6588) from the guest program execution
 
 #### Geth
 
