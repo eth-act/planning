@@ -81,12 +81,26 @@
 
 ### M1 — Standardize minimal hardware targets
 
+No update
 
 ### M2 — Standardize zkVM precompiles via C headers
 
+- [Marcin] Started U256/big-integer acceleration through the accelerator interface:
+    - Integrating U256 acceleration into the Reth-based `zisk-eth-client` guest, exploring two designs: a [dynamic dispatch version](https://github.com/0xPolygonHermez/zisk-eth-client/pull/57) and a [conditional compilation version](https://github.com/0xPolygonHermez/zisk-eth-client/pull/58).
+    - Prototyped a [switchable U256 backend in revm](https://github.com/bluealloy/revm/pull/3542) so the U256 implementation can be swapped for an accelerated one (closed).
+- [Marcin] ZisK accelerator-interface conformance:
+    - [Fixed function name in `zkvm_accelerators.rs`](https://github.com/0xPolygonHermez/zisk/pull/914).
+    - Explored explicit `zkvm_init`/`zkvm_deinit` lifecycle hooks ([zisk#913](https://github.com/0xPolygonHermez/zisk/pull/913), [zisk-eth-client#59](https://github.com/0xPolygonHermez/zisk-eth-client/pull/59)) — closed in favor of a different initialization approach.
+- [Marcin] Created [`u256-acceleration-benchmarking`](https://github.com/eth-act/u256-acceleration-benchmarking): a micro-benchmark harness measuring the native per-operation cost of U256 operations across operand bit-lengths, to inform which operations are worth accelerating in the zkVM. Includes a test-vector generator, statistical sampling (`black_box`-guarded to avoid measurement bias), and heatmap/boxplot visualizations grouped by operation type.
+
+
 ### M3 — Standardize the interface for accessing IO via C headers
 
+No update
+
 ### M4 — Standardize assumptions about the ELF and zkVM processing
+
+- [Marcin] ["Instruction Address Misaligned Exception Semantics" proposal](https://github.com/eth-act/zkvm-standards/pull/24) - accepted
 
 ## Project 4: Consensus Layer Integration
 
