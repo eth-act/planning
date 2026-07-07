@@ -1,6 +1,7 @@
 # zkEVM on L1
 
-**Note:** Future zkEVM project updates will be shared only in the public [zkEVM breakout sessions](https://github.com/ethereum/pm/issues?q=zkEVM). This repository will no longer be updated with ongoing project status.
+> [!CAUTION]
+> Future zkEVM project updates will be shared only in the public [zkEVM breakout sessions](https://github.com/ethereum/pm/issues?q=zkEVM). This repository will no longer be updated with ongoing project status.
 
 
 This document describes the set of milestones/sub-projects needed for Ethereum L1 to support zkEVM proofs as an alternative to re-execution in the attesting workflow.
